@@ -8,7 +8,7 @@ function App() {
   return (
  
       <div>
-        <Sidenav />
+        {/* <Sidenav /> */}
         <Main />
         </div>
    )
