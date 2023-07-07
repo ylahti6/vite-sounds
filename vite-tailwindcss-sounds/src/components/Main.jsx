@@ -34,7 +34,7 @@ const Main = () => {
   return (
     <div className="relative h-screen w-screen">
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full min-h-screen object-cover"
         ref={videoRef}
         autoPlay
         loop
