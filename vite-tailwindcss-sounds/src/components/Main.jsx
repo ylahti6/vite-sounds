@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import audioFile from "../audio/vite-tailwindcss-sound.mp3";
 import rainBackground from "../img/vite-tailwindcss-rain-background.jpg";
-import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
+import { AiOutlinePlayCircle, AiOutlinePauseCircle, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 const Main = () => {
   const audioRef = useRef(null);
@@ -31,7 +31,8 @@ const Main = () => {
       className="bg-cover bg-center h-screen w-screen capitalize"
       style={{ backgroundImage: `url(${rainBackground})` }}
     >
-      <div className="grid content-center justify-center h-screen w-screen font-serif text-center">
+      <div className="grid justify-center items-center h-screen">
+      <div className="flex flex-col items-center justify-center rounded-3xl h-fit w-fit p-4 font-serif bg-[#fffff33] backdrop-blur-md shadow-2xl drop-shadow-lg">
         {/* Audio file */}
         <audio loop ref={audioRef} id="song" className="hidden">
           <source src={audioFile} type="audio/mpeg" />
@@ -40,16 +41,17 @@ const Main = () => {
           Your browser does not support the audio element.
         </audio>
 
-        <div className="controls flex items-center justify-center transition-all">
+        <div className="controls flex items-center justify-center m-8">
           <div
             id="playButton"
             ref={playButtonRef}
             style={{ display: isPlaying ? "none" : "block" }}
+            
           >
             <AiOutlinePlayCircle
               size={150}
               onClick={playPause}
-              className="text-white m-8 cursor-pointer"
+              className="text-white cursor-pointer hover:animate-pulse"
             />
           </div>
           <div
@@ -60,7 +62,7 @@ const Main = () => {
             <AiOutlinePauseCircle
               size={150}
               onClick={playPause}
-              className="text-white m-8 cursor-pointer"
+              className="text-white  cursor-pointer hover:animate-pulse"
             />
           </div>
         </div>
@@ -72,18 +74,24 @@ const Main = () => {
             min="0"
             max="1"
             step="0.01"
-            defaultValue="1"
+            defaultValue="0.5"
             onChange={handleVolumeChange}
           />
         </div>
 
-        <h1 className="text-white text-8xl m-6">Rainy Mood.</h1>
-        <p className="text-white text-2xl m-2">rain sounds for sleep & study</p>
-        <p className="text-white text-2xl m-2">
-          Soon available on Spotify and Apple Music
-        </p>
+        <h1 className="text-white text-4xl m-8 drop-shadow-md">Rainy Mood.</h1>
+
+        <div className="flex">
+          <AiFillGithub size={50} className="text-white m-2"/>
+          <AiFillLinkedin size={50} className="text-white m-2"/>
+        </div>
+        
+        <p className="text-white text-xl m-4 drop-shadow-md">rain sounds for sleep & study</p>
+        <p className="text-white text-sm m-4 drop-shadow-md">Soon available on <span className="hover:underline cursor-pointer">Spotify</span> and <span className="hover:underline cursor-pointer">Apple Music</span>*</p>
+       </div>
       </div>
-    </div>
+      </div>
+    
   );
 };
 
