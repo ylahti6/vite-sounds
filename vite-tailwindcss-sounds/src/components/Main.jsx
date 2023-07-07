@@ -39,7 +39,7 @@ const Main = () => {
         autoPlay
         loop
         muted
-        playbackRate={videoSpeed}
+        playbackrate={videoSpeed}
         preload="metadata"
       >
         <source src={rainBackground} type="video/mp4" />
