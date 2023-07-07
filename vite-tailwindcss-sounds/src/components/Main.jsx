@@ -33,7 +33,7 @@ const Main = () => {
     >
       <div className="grid content-center justify-center h-screen w-screen font-serif text-center">
         {/* Audio file */}
-        <audio ref={audioRef} id="song" className="hidden">
+        <audio loop ref={audioRef} id="song" className="hidden">
           <source src={audioFile} type="audio/mpeg" />
           <source src={audioFile} type="audio/mp3" />
           <source src={audioFile} type="audio/ogg" />
