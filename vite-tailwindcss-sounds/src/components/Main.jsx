@@ -34,12 +34,13 @@ const Main = () => {
   return (
     <div className="relative h-screen w-screen">
       <video
-        className="absolute top-0 left-0 w-full min-h-screen object-cover"
+        className="absolute top-0 left-0 w-full h-screen object-cover"
         ref={videoRef}
         autoPlay
         loop
         muted
         playbackRate={videoSpeed}
+        preload="metadata"
       >
         <source src={rainBackground} type="video/mp4" />
         <source src={rainBackground} type="video/webm" />
