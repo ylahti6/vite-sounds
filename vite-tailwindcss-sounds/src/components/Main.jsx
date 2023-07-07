@@ -77,7 +77,7 @@ const Main = () => {
           />
         </div>
 
-        <h1 className="text-white text-8xl m-4">Rainy Mood.</h1>
+        <h1 className="text-white text-8xl m-6">Rainy Mood.</h1>
         <p className="text-white text-2xl m-2">rain sounds for sleep & study</p>
         <p className="text-white text-2xl m-2">
           Soon available on Spotify and Apple Music
