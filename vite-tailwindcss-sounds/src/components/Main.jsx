@@ -28,27 +28,29 @@ const Main = () => {
 
   const handleVolumeChange = (event) => {
     const audio = audioRef.current;
-    audio.volume = event.target.value;
+    audio.volume = event.currentTarget.value;
   };
 
   return (
     <div className="relative h-screen w-screen">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src={rainBackground}
         ref={videoRef}
         autoPlay
         loop
         muted
         playbackRate={videoSpeed}
-      ></video>
+      >
+        <source src={rainBackground} type="video/mp4" />
+        <source src={rainBackground} type="video/webm" />
+        Your browser does not support the video element.
+      </video>
 
       <div className="grid justify-center items-center h-screen font-serif">
         <div className="flex flex-col items-center justify-cente space-y-2 space-y-reverse rounded-3xl h-fit w-fit bg-[#fffff33] backdrop-blur-xl shadow-2xl drop-shadow-xl">
           <audio loop ref={audioRef} id="song" className="hidden">
             <source src={audioFile} type="audio/mpeg" />
-            <source src={audioFile} type="audio/mp3" />
-            <source src={audioFile} type="audio/ogg" />
+            <source src={audioFile} type="audio/wav" />
             Your browser does not support the audio element.
           </audio>
 
