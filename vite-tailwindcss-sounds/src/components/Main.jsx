@@ -95,10 +95,9 @@ const Main = () => {
           <h1 className="text-white text-4xl drop-shadow-md p-8 md:text-6xl">Rainy Mood</h1>
           <p className="text-white text-lg p-2 drop-shadow-md capitalize">rain sounds for sleep & study</p>
           
-          <p className="text-white text-sm drop-shadow-md sm:text-md p-6">Built with
-            <span className="hover:underline cursor-pointer"> Vite.js, </span>
-            <span className="hover:underline cursor-pointer"> React</span> and
-            <span className="hover:underline cursor-pointer"> TailwindCSS </span>*
+          <p className="text-white text-sm drop-shadow-md sm:text-md p-6">Soon available on&nbsp;
+          <span className="hover:underline cursor-pointer">Spotify</span>&nbsp;and&nbsp;
+          <span className="hover:underline cursor-pointer">Apple Store</span>
           </p>
         </div>
       </div>
