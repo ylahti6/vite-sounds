@@ -39,7 +39,6 @@ const Main = () => {
         autoPlay
         loop
         muted
-        playsInline // Added playsInline attribute
         playbackRate={videoSpeed}
         preload="metadata"
       >
@@ -50,7 +49,7 @@ const Main = () => {
 
       <div className="grid justify-center items-center h-screen font-serif">
         <div className="flex flex-col items-center justify-cente space-y-2 space-y-reverse rounded-3xl h-fit w-fit bg-[#fffff33] backdrop-blur-xl shadow-2xl drop-shadow-xl">
-          <audio loop ref={audioRef} id="song" className="hidden" playsInline> // Added playsInline attribute
+          <audio loop ref={audioRef} id="song" className="hidden">
             <source src={audioFile} type="audio/mpeg" />
             <source src={audioFile} type="audio/wav" />
             Your browser does not support the audio element.
@@ -64,8 +63,7 @@ const Main = () => {
             >
               <AiOutlinePlayCircle
                 size={150}
-                onMouseDown={playPause} // Added onMouseDown event
-                onTouchStart={playPause} // Added onTouchStart event
+                onClick={playPause}
                 className="text-white cursor-pointer hover:animate-pulse"
               />
             </div>
@@ -76,8 +74,7 @@ const Main = () => {
             >
               <AiOutlinePauseCircle
                 size={150}
-                onMouseStart={playPause} // Added onMouseDown event
-                onTouchDown={playPause} // Added onTouchStart event
+                onClick={playPause}
                 className="text-white cursor-pointer hover:animate-pulse"
               />
             </div>
