@@ -76,8 +76,8 @@ const Main = () => {
             >
               <AiOutlinePauseCircle
                 size={150}
-                onMouseDown={playPause} // Added onMouseDown event
-                onTouchStart={playPause} // Added onTouchStart event
+                onMouseStart={playPause} // Added onMouseDown event
+                onTouchDown={playPause} // Added onTouchStart event
                 className="text-white cursor-pointer hover:animate-pulse"
               />
             </div>
