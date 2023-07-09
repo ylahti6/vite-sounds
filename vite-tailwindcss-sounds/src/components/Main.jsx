@@ -34,7 +34,7 @@ const Main = () => {
   return (
     <div className="relative h-screen w-screen">
       <video
-        className="absolute top-0 left-0 w-full h-screen object-cover"
+        className="absolute top-0 left-0 w-full h-screen object-cover bg-fixed"
         ref={videoRef}
         autoPlay
         loop
@@ -93,10 +93,12 @@ const Main = () => {
           </div>
 
           <h1 className="text-white text-4xl drop-shadow-md p-8 md:text-6xl">Rainy Mood</h1>
-          <p className="text-white text-lg p-2 drop-shadow-md ">rain sounds for sleep & study</p>
-          <p className="text-white text-sm drop-shadow-md sm:text-md p-6">
-            Soon available on <span className="hover:underline cursor-pointer">Spotify</span> and
-            <span className="hover:underline cursor-pointer">Apple Music</span>*
+          <p className="text-white text-lg p-2 drop-shadow-md capitalize">rain sounds for sleep & study</p>
+          
+          <p className="text-white text-sm drop-shadow-md sm:text-md p-6">Built with
+            <span className="hover:underline cursor-pointer"> Vite.js, </span>
+            <span className="hover:underline cursor-pointer"> React</span> and
+            <span className="hover:underline cursor-pointer"> TailwindCSS </span>*
           </p>
         </div>
       </div>
