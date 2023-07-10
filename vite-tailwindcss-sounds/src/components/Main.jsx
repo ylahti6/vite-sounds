@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import audioFile from "../audio/vite-tailwindcss-sound.mp3";
 import rainBackground from "../video/vite-tailwindcss-video.mp4";
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
@@ -10,6 +10,18 @@ const Main = () => {
   const pauseButtonRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoSpeed, setVideoSpeed] = useState(0.5);
+  const [currentDate, setCurrentDate] = useState(new Date());
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
 
   const playPause = () => {
     const audio = audioRef.current;
@@ -24,7 +36,9 @@ const Main = () => {
       setIsPlaying(false);
       video.playbackRate = 0.5; // Set video speed to 0.5x when paused
     }
-  };
+  }
+  
+  ;
 
   const handleVolumeChange = (event) => {
     const audio = audioRef.current;
@@ -48,8 +62,21 @@ const Main = () => {
         Your browser does not support the video element.
       </video>
 
+      {/* Main container */}
       <div className="grid justify-center items-center h-screen font-serif">
-        <div className="flex flex-col items-center justify-cente space-y-2 space-y-reverse rounded-3xl h-fit w-fit bg-[#fffff33] backdrop-blur-xl shadow-2xl drop-shadow-xl">
+
+        <div className="flex flex-col items-center justify-cente space-y-1 space-y-reverse rounded-3xl h-auto w-auto bg-[#fffff33] backdrop-blur-xl shadow-2xl drop-shadow-xl">
+        {/* Date */}
+        <div className="absolute text-1xl top-5 left-5 text-white opacity-50 font-sans font-bold">
+        <div>
+          {`${currentDate.getDate()} ${currentDate.toLocaleDateString(undefined, { month: "short" })} ${currentDate.getFullYear().toString().slice(-2)}`}
+        </div>
+          <div>
+            {currentDate.toLocaleTimeString(undefined, { timeStyle: "medium" })}
+          </div>
+        </div>
+          
+          {/* Audio */}
           <audio loop ref={audioRef} id="song" className="hidden" playsInline> // Added playsInline attribute
             <source src={audioFile} type="audio/mpeg" />
             <source src={audioFile} type="audio/wav" />
@@ -66,7 +93,7 @@ const Main = () => {
                 size={150}
                 onMouseDown={playPause} // Added onMouseDown event
                 // onTouchStart={playPause} // Added onTouchStart event
-                className="text-white cursor-pointer hover:animate-pulse"
+                className="text-white cursor-pointer animate-pulse"
               />
             </div>
             <div
@@ -78,7 +105,7 @@ const Main = () => {
                 size={150}
                 onMouseDown={playPause} // Added onMouseDown event
                 // onTouchStart={playPause} // Added onTouchStart event
-                className="text-white cursor-pointer hover:animate-pulse"
+                className="text-white cursor-pointer"
               />
             </div>
           </div>
